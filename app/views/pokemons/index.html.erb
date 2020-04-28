@@ -1,0 +1,24 @@
+
+    <style>
+        body{
+            background-image: url("/pokemonbackgrounds/allpokemon.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+    </style>
+
+<div class="pokemon-tile">
+    <ol><% @pokemons.each do |pokemon| %>
+       <li> <img class="img-center" src=<%=pokemon.sprite%>>
+        <%= button_to pokemon.name, pokemon_path(pokemon), method: :get%>
+        
+        </li>
+    <% end %>
+    
+    </ol>
+</div>
+
+
+

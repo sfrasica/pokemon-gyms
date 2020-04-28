@@ -1,0 +1,32 @@
+<style>
+.no_center{
+    text-align: left; 
+}
+
+.starter_sprite_form{ 
+   margin: 0px 10px 0px 10px;
+}
+
+.move_sprite{
+    margin-left: 140px;
+}
+</style>
+
+<h1>Congratulations on beginning your new pokemon journey!</h1>
+
+<div class="no_center">
+    <%= form_for @trainer do |f|%>
+        <ul>
+            <li>
+                <%= f.label :username %>
+                <%= f.text_field :username %>
+            </li>
+
+            <li>
+                <%= f.label :password %>
+                <%= f.password_field :password %>
+            </li>
+        </ul>
+        <%= f.submit %>
+    <% end %>
+</div>

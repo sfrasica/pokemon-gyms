@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  balltype: MyString
+  pokemon: one
+  trainer: one
+  badge: one
+
+two:
+  balltype: MyString
+  pokemon: two
+  trainer: two
+  badge: two

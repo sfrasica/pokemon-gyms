@@ -1,0 +1,17 @@
+<style>
+body {
+    background-image: url('/gymleader_index/kantogymleaders.jpg');
+    background-size: cover;
+}
+.gymleader_hover:hover{
+}
+
+</style>
+<ul>
+    <% @gymleaders.each do |gymleader| %>
+        <li><img src= <%=gymleader.headshot%> class="gymleader_hover">
+        <br>
+        <%= button_to gymleader.name, gymleader_path(gymleader), method: "get"%>
+        </li>
+    <% end %>
+</ul>

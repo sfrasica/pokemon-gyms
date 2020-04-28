@@ -1,0 +1,37 @@
+<!-- Starter Pokemon Form-->
+
+ <style>
+        body{
+            background-image: url("/pokemonbackgrounds/startersall.jpg");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        img{
+          opacity: 80%;
+
+        }
+
+        h2{
+          color: black;
+        }
+    </style>
+
+
+
+
+  <img class="one" src = "/pokemonbackgrounds/pickstarter.gif">
+<%= form_for @pokeball do |f|%>
+    <h2><%= f.label "Pick your Starter Pokemon" %></h2>
+  
+  <h2>  <%= f.collection_radio_buttons :pokemon_id, Pokemon.starters, :id, :name %> </h2> 
+
+    <ul class="move_sprite">
+    <% Pokemon.starters.each do |starter|%>
+        <li class="starter_sprite_form"><img src=<%= starter.sprite %>></li>
+    <%end%>
+    </ul>
+
+    <%= f.submit value="Choose Starter"%>
+    
+<% end %>

@@ -1,0 +1,16 @@
+<style>
+    h1{
+        color:black;
+    }
+
+</style>
+
+
+<h1>Congratulations! Here are the Badges that prove your Victory!</h1>
+
+<ul>
+<% @badges.each do |badge|%>
+    <li>You've gotten the <%= badge.gymleader.badge_name%>!</li>
+    <img src="<%=badge.gymleader.badge_img%>">
+<% end %>
+</ul>

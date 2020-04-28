@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PokeProjectAppMon</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.css'>
+  </head>
+  <style>
+  .logout_button{
+    margin-left: 685px;
+
+  }
+
+  header{
+    background-color: grey;
+    opacity: 70%;
+    color: black;
+  }
+  </style>
+
+  <body>
+    <header>
+      <% if @logged_in %>
+        <%= link_to "Home Page", root_path %> |
+        <%= link_to "View Pokedex", pokemons_path %> |
+        <%= link_to "Gyms", gymleaders_path %> | <br>
+        Welcome back, Trainer <%= @logged_in_trainer.username %>!<br>
+        <%= link_to "Trainer Profile", pokeballs_path%>
+        
+        Badges: <%= @logged_in_trainer.total_badges %>
+        Pokemons: <%= @logged_in_trainer.total_pokemons %>
+        <%= button_to "Log out", log_out_path, :class => "logout_button" , method: :delete %>
+
+      <% else %>
+        <%= link_to "Login Trainer", new_login_path %> |
+        <%= link_to "Register New Trainer", new_trainer_path %>
+      <% end %>
+
+      <% if @notification %> 
+        <p class="message">
+          <%= @notification %>
+        </p>
+      <% end %>
+
+      <% if @errors && @errors.any? %>
+      <ul class="errors">
+        <% @errors.each do |error| %>
+        <li>
+          <%= error %>
+        </li>
+        <% end %>
+      </ul>
+      <% end %>
+    <hr>
+    </header>
+
+    <%= yield %>
+  </body>
+</html>

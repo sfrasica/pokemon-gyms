@@ -1,0 +1,54 @@
+<style>
+body {
+    background-image: url('<%= @gymleader.bg.to_s%>');
+    background-size: cover;
+  }
+  h2{
+    color: black;
+    background-color: white;
+    opacity: 60%;
+    margin: auto;
+  }
+  h3{
+    color: black;
+    background-color: white;
+    opacity: 60%;
+  }
+
+  h4{
+    color: black;
+    background-color: white;
+    opacity: 50%;
+  }
+
+  button{
+
+  }
+</style>
+
+<h2>You have entered the <%= @gymleader.city %> Gym!</h2>
+
+<div class ="coolshit">
+<img src=<%= @gymleader.sprite %> alt="sprite goes here">
+=> <img src=<%=@gymleader.fullbody %> alt="fullbody here">
+=> <img src=<%= @gymleader.portrait %> alt="portrait here">
+</div>
+
+
+
+<h3><%= @gymleader.name%> is the leader of this gym!</h3>
+
+<h4>All trainers who defeat this gym leader will receive the <%= @gymleader.badge_name %></h4>
+    <h4>BATTLE <%=@gymleader.name%>! </h4>
+
+
+  <%= form_for [@gymleader, Badge.new], local:true do |f|%>
+    <button type="submit" class='<%= @can_battle ? "Battle" : "Cannot Battle"%>'>
+      
+    
+    </button>
+  <% end %>
+
+
+<img src=<%= @gymleader.badge_img %> alt="badge thingy" class="badge_img">
+<%=button_to "Return to Gym Leaders", gymleaders_path, method: :get%>

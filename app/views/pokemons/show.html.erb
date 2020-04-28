@@ -1,0 +1,36 @@
+
+<style>
+    body{
+        background-image: url('<%= @pokemon.background.to_s%>');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    
+    h3{
+        color: black;
+    }
+</style>
+    <br>
+    <%= button_to "Catch a pokemon!", new_pokeball_path, method: :get %>
+    <br>
+
+<div class="text-align-container">
+    <img src=<%= @pokemon.big_img %> alt="Picture goes here">
+
+    <h3 id="electric"> My name is <%= @pokemon.name %> </h3>
+
+    <h3> My type(s) are: <%= @pokemon.poke_type%> </h3>
+
+    <h3> My favorite move is: <%= @pokemon.attack%></h3>
+
+    <h3> <%= @pokemon.poke_phrase%></h3>
+</div>
+
+<p><%= button_to "Back to Pokedex", pokemons_path, method: :get%></p>
+
+
+
+
+
+
